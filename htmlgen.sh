@@ -1,4 +1,5 @@
 #!/bin/bash
+# All files in img folder
 FILES=img/*
 
 echo "<!DOCTYPE html>"
@@ -20,6 +21,8 @@ echo "				<div class='image-set'>"
 
 for f in $FILES
 do
+    # Look for jpg and png, ignore the rest
+    # Need to use ${f:4} in order to substring "img/image.png" to "image.png".
 	if [[ "$f" == *jpg ]] || [[ "$f" == *png ]]
         then
         echo "<a class='example-image-link' href='${f:4}' data-lightbox='example-set' data-title=''><img class='example-image' src='${f:4}' alt=''/></a>"
